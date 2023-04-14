@@ -21,4 +21,22 @@ const NavigationBar = ({ left, right, rightPath, leftPath }) => {
   useEffect(() => {
     console.log("url", currentUrl);
   }, [currentUrl]);
+
+  return (
+    <NavBar bg="primary">
+      {!left ? null : left === "logout" ? (
+        <Nav>
+          <Link className="text-white" onClick={logoutHandler}>
+            <AiOutlineLogout className="h1 m-1" />
+          </Link>
+        </Nav>
+      ) : (
+        <Nav>
+          <Link className="text-white" to={leftPath}>
+            <IoArrowBackCircleOutline className="h1 m-1" />
+          </Link>
+        </Nav>
+      )}
+    </NavBar>
+  )
 }
