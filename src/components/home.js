@@ -7,10 +7,9 @@ import NavigationBar from "./Navbar";
 const Home = () => {
   const { token } = useContext(Context);
   const navigate = useNavigate();
-
   useEffect(() => {
     if (token) {
-      navigate("/")
+      navigate("/people");
     }
-  })
+  }, [token, navigate]);
 }
