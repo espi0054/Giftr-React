@@ -15,4 +15,10 @@ const NavigationBar = ({ left, right, rightPath, leftPath }) => {
     setTokenHandler("");
     navigate("/");
   };
+
+  console.log(left);
+  const currentUrl = window.location.href;
+  useEffect(() => {
+    console.log("url", currentUrl);
+  }, [currentUrl]);
 }
