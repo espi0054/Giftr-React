@@ -37,6 +37,18 @@ const NavigationBar = ({ left, right, rightPath, leftPath }) => {
           </Link>
         </Nav>
       )}
+      <div className="mx-auto">
+        <h2 className="text-white">Giftr</h2>
+      </div>
+      {!right ? null : (
+        <Nav>
+          <Link className="text-white" to={rightPath}>
+            <AiOutlinePlusCircle className="h1 m-1" />
+          </Link>
+        </Nav>
+      )}
     </NavBar>
-  )
-}
+  );
+};
+
+export default NavigationBar;
