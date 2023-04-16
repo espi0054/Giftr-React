@@ -6,8 +6,35 @@ import { Card, Container } from "react-bootstrap";
 import { AiOutlineEdit, AiOutlineGift } from "react-icons/ai";
 import NavigationBar from "./Navbar";
 
-
 const Gifts = () => {
+  const [gifts, setGifts] = useState([]);
+  const [person, setPerson] = useState({});
+  const { token, setTokenHandler, axiosRequest } = useContext(Context);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token === "") {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
+  const { userId } = useParams();
+
+  useEffect(() => {
+    const request = {
+      method: "get",
+      url: `${config.BACKEND_URL}api/gifts/${userId}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    axiosRequest(request).then((data) => {
+      setGifts(data.gifts);
+      setPerson(data.person);
+    });
+  }, [token, axiosRequest, setTokenHandler]);
+
+  console.log("gifts", gifts);
+
   return (
     <>
       <NavigationBar
@@ -49,3 +76,5 @@ const Gifts = () => {
     </>
   );
 };
+
+export default Gifts;
