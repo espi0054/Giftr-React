@@ -7,6 +7,26 @@ import { AiOutlineEdit, AiOutlineGift } from "react-icons/ai";
 import NavigationBar from "./Navbar";
 
 const People = () => {
+  const [people, setPeople] = useState([]);
+  const { token, setTokenHandler, axiosRequest } = useContext(Context);
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log(token === "");
+    if (token === "") {
+      navigate("/");
+    }
+  }, [token, navigate]);
+  useEffect(() => {
+    const request = {
+      method: "get",
+      url: `${config.BACKEND_URL}api/people`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    axiosRequest(request).then((data) => setPeople(data));
+  }, [token, axiosRequest]);
+
   return (
     <>
       <NavigationBar left="logout" right="add" rightPath="/people/add" />
