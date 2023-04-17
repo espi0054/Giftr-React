@@ -6,6 +6,88 @@ import config from "../Config/Config";
 import NavigationBar from "./Navbar";
 
 const Person = () => {
+  const [name, setName] = useState("");
+  const [initialName, setInitialName] = useState("");
+  const [dob, setDob] = useState("");
+  const [notFound, setNotFound] = useState(false);
+
+  const navigate = useNavigate();
+  const { axiosRequest, token, setTokenHandler } = useContext(Context);
+
+  useEffect(() => {
+    if (token === "") {
+      navigate("/");
+    }
+  }, [token, navigate]);
+  const { id } = useParams();
+  console.log(id);
+  useEffect(() => {
+    let request = {
+      method: "get",
+      url: `${config.BACKEND_URL}api/people/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    axiosRequest(request)
+      .then((data) => {
+        const date = new Date(data.dob);
+        const formattedDate = date.toISOString().substring(0, 10);
+        setDob(formattedDate);
+        setName(data.name);
+        setInitialName(data.name);
+      })
+      .catch((error) => {
+        // console.log(error.response);
+        if (error.response.status === 404) {
+          setNotFound(true);
+        }
+      });
+  }, []);
+
+  const handleSave = async (event) => {
+    event.preventDefault();
+    if (name === "" || dob === "") {
+      alert("Name and Date of birth is required");
+      return;
+    }
+    let data = JSON.stringify({
+      name: name,
+      dob: new Date(dob).getTime(),
+    });
+    let request = {
+      method: "patch",
+      url: `${config.BACKEND_URL}api/people/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    try {
+      const response = await axiosRequest(request);
+      navigate("/people");
+    } catch (error) { }
+  };
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    let request = {
+      method: "delete",
+      url: `${config.BACKEND_URL}api/people/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const response = await axiosRequest(request);
+      navigate("/people");
+    } catch (error) { }
+  };
+
+  if (notFound) {
+    return <h1>Not Found...</h1>;
+  }
   return (
     <>
       <NavigationBar left="back" leftPath="/people" />
