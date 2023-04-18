@@ -4,6 +4,7 @@ import { Context } from "../contexts/ContextProvider";
 import config from "../Config/Config";
 import { Form, Button, Container } from "react-bootstrap";
 import NavigationBar from "./Navbar";
+
 const AddGift = () => {
   const [giftIdea, setGiftIdea] = useState("");
   const [storeLocation, setStoreLocation] = useState("");

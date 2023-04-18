@@ -21,9 +21,8 @@ const NavigationBar = ({ left, right, rightPath, leftPath }) => {
   useEffect(() => {
     console.log("url", currentUrl);
   }, [currentUrl]);
-
   return (
-    <NavBar bg="primary">
+    <Navbar bg="primary">
       {!left ? null : left === "logout" ? (
         <Nav>
           <Link className="text-white" onClick={logoutHandler}>
@@ -47,7 +46,7 @@ const NavigationBar = ({ left, right, rightPath, leftPath }) => {
           </Link>
         </Nav>
       )}
-    </NavBar>
+    </Navbar>
   );
 };
 

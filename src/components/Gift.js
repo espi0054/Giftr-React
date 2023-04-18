@@ -13,7 +13,7 @@ const Gift = () => {
   const [personName, setPersonName] = useState("");
 
   const { userId, id } = useParams();
-  const { token } = useContext(Context);
+  const { axiosRequest, token } = useContext(Context);
   const navigate = useNavigate();
   useEffect(() => {
     if (token === "") {
@@ -21,6 +21,75 @@ const Gift = () => {
     }
   }, [token, navigate]);
 
+  useEffect(() => {
+    let request = {
+      method: "get",
+      url: `${config.BACKEND_URL}api/gift/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    axiosRequest(request)
+      .then((data) => {
+        console.log(data);
+        setGiftIdea(data.idea);
+        setStoreLocation(data.location);
+        setWebsiteURL(data.website);
+        setPersonName(data.personId.name);
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          setNotFound(true);
+        }
+      });
+  }, []);
+
+  const handleSave = async (event) => {
+    event.preventDefault();
+    if (!giftIdea || !storeLocation || !websiteURL) {
+      alert("All parameters are required");
+      return;
+    }
+    let data = JSON.stringify({
+      idea: giftIdea,
+      location: storeLocation,
+      website:
+        websiteURL.startsWith("http://") || websiteURL.startsWith("https://")
+          ? websiteURL
+          : `https://${websiteURL}`,
+      userId: userId,
+    });
+    let request = {
+      method: "patch",
+      url: `${config.BACKEND_URL}api/gift/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+    const response = await axiosRequest(request);
+    navigate(`/people/${userId}/gifts`);
+  };
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    let request = {
+      method: "delete",
+      url: `${config.BACKEND_URL}api/gift/${id}`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const response = await axiosRequest(request);
+      navigate(`/people/${userId}/gifts`);
+    } catch (error) { }
+  };
+
+  if (notFound) {
+    return <h1>Not Found...</h1>;
+  }
   return (
     <>
       <NavigationBar left="back" leftPath={`/people/${userId}/gifts`} />
@@ -90,3 +159,5 @@ const Gift = () => {
     </>
   );
 };
+
+export default Gift;
