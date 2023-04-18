@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Giftr React Final Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📘 Table of Contents
 
-## Available Scripts
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+Before you start, make sure you have the following installed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Visual Studio
+- NodeJs
+- MongoDB
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💾 Installation
 
-### `npm test`
+This project requires the Giftr-React and Giftr-React-Server installed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Giftr-React Installation
 
-### `npm run build`
+1. Open Visual Studio, create / open a folder where Giftr React project will be installed
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ![](/react-giftr/img/Create_Folder.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Open the terminal inside Visual Studio and type the following command
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   `git clone https://github.com/espi0054/Giftr-React.git`
 
-### `npm run eject`
+3. Still on the terminal, type the following command to change into the project directory
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   `cd Giftr-React`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. The final step is to install the dependencies, which you can do so with the following command
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   `npm install`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Giftr-React-Server Installation
 
-## Learn More
+1. Open a new Visual Studio window and open the same folder where you stored Giftr React project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](/react-giftr/img/VS_New_Window.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Open the terminal inside Visual Studio and type the following command.
 
-### Code Splitting
+   `git clone https://github.com/espi0054/Giftr-React-Server.git`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Still on the terminal, type the following command to change into the project directory
 
-### Analyzing the Bundle Size
+   `cd Giftr-React-Server`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Just like last time, the final step is to install the dependencies, which you can do so with the following command
 
-### Making a Progressive Web App
+   `npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🏃‍♂️ Usage
 
-### Advanced Configuration
+After following the steps above, it is time to run the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Before running the application, we need to open MongoDB and make sure that your connection string is like this
 
-### Deployment
+![](/react-giftr/img/Mongo.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Then head over to the Giftr-React-Server, we need to type the following command
 
-### `npm run build` fails to minify
+   `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. On the Giftr-React project, we need to type the following command
+
+   `npm start`
+
+   ![](/react-giftr/img/Npm_Start.png)
+
+4. If everything is installed properly, everything should look like this
+
+   ![](/react-giftr/img/Outcome.png)
+
+5. Congratulations, you can now use Giftr
