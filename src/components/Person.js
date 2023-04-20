@@ -38,7 +38,6 @@ const Person = () => {
         setInitialName(data.name);
       })
       .catch((error) => {
-        // console.log(error.response);
         if (error.response.status === 404) {
           setNotFound(true);
         }

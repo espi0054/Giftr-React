@@ -90,6 +90,7 @@ const Gift = () => {
   if (notFound) {
     return <h1>Not Found...</h1>;
   }
+
   return (
     <>
       <NavigationBar left="back" leftPath={`/people/${userId}/gifts`} />
@@ -128,6 +129,7 @@ const Gift = () => {
               onChange={(e) => setWebsiteURL(e.target.value)}
             />
           </Form.Group>
+
           <Form.Group className="w-75 mx-auto mt-2 d-flex justify-content-center align-items-center">
             <Button
               variant="primary"

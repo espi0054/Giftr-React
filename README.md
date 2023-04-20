@@ -22,7 +22,7 @@ This project requires the Giftr-React and Giftr-React-Server installed
 
 1. Open Visual Studio, create / open a folder where Giftr React project will be installed
 
-   ![](/react-giftr/img/Create_Folder.png)
+   ![](/img/Create_Folder.png)
 
 2. Open the terminal inside Visual Studio and type the following command
 
@@ -40,7 +40,7 @@ This project requires the Giftr-React and Giftr-React-Server installed
 
 1. Open a new Visual Studio window and open the same folder where you stored Giftr React project.
 
-![](/react-giftr/img/VS_New_Window.png)
+![](/img/VS_New_Window.png)
 
 2. Open the terminal inside Visual Studio and type the following command.
 
@@ -60,7 +60,7 @@ After following the steps above, it is time to run the application.
 
 1. Before running the application, we need to open MongoDB and make sure that your connection string is like this
 
-![](/react-giftr/img/Mongo.png)
+![](/img/Mongo.png)
 
 2. Then head over to the Giftr-React-Server, we need to type the following command
 
@@ -70,10 +70,10 @@ After following the steps above, it is time to run the application.
 
    `npm start`
 
-   ![](/react-giftr/img/Npm_Start.png)
+   ![](/img/Npm_Start.png)
 
 4. If everything is installed properly, everything should look like this
 
-   ![](/react-giftr/img/Outcome.png)
+   ![](/img/Outcome.png)
 
 5. Congratulations, you can now use Giftr

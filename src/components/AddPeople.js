@@ -60,6 +60,7 @@ const AddPeople = () => {
               onChange={(event) => setName(event.target.value)}
             />
           </Form.Group>
+
           <Form.Group controlId="formDateOfBirth" className="w-75 mx-auto">
             <Form.Label>Date of Birth</Form.Label>
             <Form.Control
@@ -69,6 +70,7 @@ const AddPeople = () => {
               onChange={(event) => setDateOfBirth(event.target.value)}
             />
           </Form.Group>
+
           <Form.Group className="w-75 mx-auto mt-2 d-flex justify-content-center align-items-center">
             <Button variant="primary" type="submit" className="m-2 btn-lg">
               Submit

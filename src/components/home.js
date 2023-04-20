@@ -32,8 +32,6 @@ const Home = () => {
         <Button onClick={googleAuth} className="btn-lg">
           Login
         </Button>
-        {/* </Col>
-      </Row> */}
       </Container>
     </>
   );

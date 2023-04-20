@@ -45,6 +45,7 @@ const AddGift = () => {
     const response = await axiosRequest(request);
     navigate(`/people/${userId}/gifts`);
   };
+
   return (
     <>
       <NavigationBar left="back" leftPath={`/people/${userId}/gifts`} />
@@ -82,6 +83,7 @@ const AddGift = () => {
               onChange={(e) => setWebsiteURL(e.target.value)}
             />
           </Form.Group>
+
           <Form.Group className="w-75 mx-auto mt-2 d-flex justify-content-center align-items-center">
             <Button variant="primary" type="submit" className="m-2 btn-lg">
               Save
